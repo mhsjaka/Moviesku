@@ -1,0 +1,374 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+:root {
+  --hitam: #222831;
+  --merah: #ff0000;
+  scroll-behavior: smooth;
+}
+@keyframes open {
+  0% {
+    color: var(--merah);
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+
+  100% {
+    color: white;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media only screen and (min-width: 320px) {
+  .hero_thumbnail .caption {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .container_movies .card_img {
+    width: 100%;
+  }
+  nav {
+    display: flex;
+    height: 100vh;
+    transform: translateX(-100%);
+  }
+  .nav_container {
+    flex-direction: column;
+  }
+  nav .nav_icon {
+    margin-bottom: 2rem;
+  }
+  nav .nav_list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  nav .nav_list a {
+    margin-left: 0;
+    margin-bottom: 2rem;
+  }
+  nav .nav_list p {
+    display: block;
+  }
+  .detail_movies .card_detail {
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .detail_movies .card_preview {
+    margin-top: 1rem;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  .detail_movies .card_deskripsi .card_judul {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  .detail_movies .card_deskripsi {
+    font-size: 1rem;
+  }
+  footer .copyright {
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .hero_thumbnail .caption {
+    text-align: center;
+    font-size: 3rem;
+  }
+  nav {
+    height: auto;
+    transform: translateX(0);
+  }
+  nav .nav_icon {
+    margin-bottom: 0;
+  }
+  nav .nav_list {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+  }
+  .nav_container {
+    flex-direction: row;
+  }
+  .container_movies .card_img {
+    width: 150px;
+  }
+  nav .nav_list a {
+    margin-bottom: 0;
+    margin-left: 2rem;
+  }
+  nav .nav_list p {
+    display: none;
+  }
+  .nav_container .menu_icon {
+    display: none;
+  }
+  .detail_movies .card_detail {
+    width: 70%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .detail_movies .card_preview {
+    margin-top: 0;
+    margin-right: 2rem;
+    margin-bottom: 0;
+  }
+  .detail_movies .card_deskripsi .card_judul {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  .detail_movies .card_deskripsi {
+    font-size: 1.5rem;
+  }
+  footer .copyright {
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .hero_thumbnail .caption {
+    font-size: 3rem;
+  }
+  .container_movies .card_img {
+    width: 250px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .hero_thumbnail .caption {
+    font-size: 4rem;
+  }
+  .container_movies .card_img {
+    width: 300px;
+  }
+}
+body {
+  position: relative;
+}
+body.close {
+  overflow: hidden;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+/* Bagian Navbar */
+nav {
+  position: fixed;
+  padding: 1rem 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: var(--hitam);
+  transition: 0.3s ease-out;
+}
+nav.open {
+  transform: translateX(0);
+}
+.nav_container {
+  display: flex;
+  width: 70%;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.nav_container .menu_icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: white;
+  position: absolute;
+  top: -100%;
+  right: -120px;
+  z-index: 9999;
+  cursor: pointer;
+  border: 2px solid var(--hitam);
+  border-radius: 1rem;
+}
+
+nav .nav_icon a {
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  transition: 0.2s ease-out;
+}
+nav .nav_list a {
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+
+  transition: 0.2s ease-out;
+}
+nav .nav_list p {
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+}
+nav .nav_list a:hover,
+nav .nav_icon a:hover {
+  color: var(--merah);
+}
+/* Bagian Navbar */
+
+/* Bagian Thumbnail */
+
+.hero_thumbnail {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.hero_thumbnail .caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+
+  text-shadow: 2px 2px 10px black;
+  font-weight: 900;
+  animation: open 1s ease-out forwards;
+}
+.hero_thumbnail .img_thumbnail {
+  background-image: url(img/Thumbnail.jpg);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Bagian Thumbnail */
+/* Bagian Film */
+#Tranding {
+  padding-top: 65px;
+}
+.movies,
+.movies_tranding {
+  width: 100%;
+  height: auto;
+  /* background-color: var(--hitam); */
+  text-align: center;
+}
+.movies .movies_header,
+.movies_tranding .movies_header {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--hitam);
+  padding: 2rem 0;
+}
+.container_movies {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.container_movies .card {
+  position: relative;
+  color: white;
+  text-shadow: 2px 2px 10px black;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  transition: 0.3s ease-out;
+  cursor: pointer;
+}
+.container_movies .card:hover {
+  margin-top: -5px;
+}
+.container_movies .card:hover .card_content {
+  opacity: 1;
+}
+.container_movies .card:hover .card_content .card_judul {
+  transform: scale(1);
+}
+
+.container_movies .card_content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 1rem;
+  opacity: 0;
+  top: 0;
+  transition: 0.2s ease-out;
+  background-color: rgb(0, 0, 0, 0.6);
+}
+.container_movies .card_content .card_judul {
+  transform: scale(0);
+  transition: 0.3s ease-out;
+}
+.detail_movies {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  height: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: 0.3s ease-out;
+  pointer-events: none;
+}
+.detail_movies.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.detail_movies .card_detail {
+  display: flex;
+  align-items: center;
+
+  height: 100vh;
+  margin: auto;
+  color: white;
+}
+
+.detail_movies .card_image {
+  width: 300px;
+  box-shadow: 2px 2px 5px black;
+}
+
+.detail_movies .detail_kembali {
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+/* Bagian Film */
+/* Bagian Footer */
+footer {
+  background-color: var(--hitam);
+  text-align: center;
+  padding: 1.5rem 0;
+}
+footer .copyright {
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+
+  color: white;
+}
+footer .social_media .img_icon {
+  width: 2rem;
+  transition: 0.3s ease;
+}
+footer a {
+  margin: 0 2rem;
+}
+footer a:nth-child(2) .img_icon {
+  transform: scale(1.2);
+}
+footer a:nth-child(2):hover .img_icon {
+  transform: scale(1.4);
+}
+footer a:hover .img_icon {
+  transform: scale(1.2);
+}
+
+/* Bagian Footer */
