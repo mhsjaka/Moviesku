@@ -109,12 +109,9 @@ window.addEventListener("DOMContentLoaded", () => {
           Data(results)
         })
 })
-window.addEventListener("resize",()=>{
-    
-    if(window.matchMedia('(min-width: 768px)')){
-        const nav = document.querySelector("nav")
-        nav.classList.add("open")
 
-    }
-})
+
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
 
